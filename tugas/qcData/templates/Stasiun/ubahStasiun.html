@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+{% endblock %}
+{% block content %}
+    <h1 class="text-2xl font-semibold text-center mt-5">Ubah Data Stasiun<em> {{stasiun.nama}}</em></h1>
+    <form class="container mt-10 px-32" action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            {{stasiun.nama}}{{form.nama}}{{form.nama.errors}}
+        </div>
+        <div class="form-group">
+            {{stasiun.alamat}}{{form.alamat}}
+        </div>
+        <div class="form-group">
+            {{stasiun.telepon}}{{form.telepon}}{{form.telepon.errors}}
+        </div>
+        <div class="form-group">
+            {{stasiun.email}}{{form.email}}
+        </div>
+        <div class="form-group">
+            {{stasiun.kepalaStasiun}}{{form.kepalaStasiun}}{{form.kepalaStasiun.errors}}
+        </div>
+        <input class="mt-3 mb-3 border font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 py-2 px-2" type="submit" name="Ubah Data" value="Submit">
+    </form>
+{% endblock %}

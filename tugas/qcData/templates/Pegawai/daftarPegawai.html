@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    <h1 class="bg-blue-900 text-white text-center text-xl font-bold pt-10 pb-3">Daftar Pegawai BMKG Indonesia</h1>
+    <ul class="pl-10 grid grid-cols-3 mt-5">
+        {% for pegawai in object_list %}
+        <li class="text-xl text-blue-600 list-disc mx-3">
+            <a href="{{ pegawai.getAbsoluteUrl }}">{{pegawai.nama}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'daftarPegawaiBaru' %}" class="">
+        <div class="pb-36 mt-5">
+          <button class="ml-10 border font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 py-2 px-2">
+          Tambah Data Pegawai</button>
+        </div>
+    </a>
+{% endblock %}

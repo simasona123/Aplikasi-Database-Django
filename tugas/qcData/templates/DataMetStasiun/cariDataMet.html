@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="bg-blue-900 text-white text-center text-xl font-bold pt-10 pb-3">Cari Data Stasiun</h1>
+        <form method="POST" action="" class="flex flex-col py-10 container mx-auto">
+            {% csrf_token %}
+            {% for i in form %}
+            <div class="">
+                {{i.label}}
+            </div>
+            <div class="">
+                {{i}}
+             </div>
+            {% endfor %}
+            <input class="my-4 mx-auto border font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 py-2 px-5" type="submit" name="" value="Cari">
+        </form>
+{% endblock %}

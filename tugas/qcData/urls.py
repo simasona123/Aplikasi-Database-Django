@@ -1,0 +1,32 @@
+from django.urls import path, re_path
+from . import views
+
+urlpatterns = [
+    path('', views.home, name='home'),
+    path('daftarStasiun', views.daftarStasiun.as_view(), name='stasiunLengkap'),
+    path('daftarStasiunBaru', views.daftarStasiunBaru, name='daftarStasiunBaru'),
+    path('daftarStasiun/<int:pk>',
+         views.daftarStasiun_detail.as_view(), name='stasiun-detail'),
+    path('daftarStasiun/<int:pk>/change',
+         views.ubahDaftarStasiun, name='ubahDaftarStasiun'),
+    path('daftarStasiun/<int:pk>/hapus',
+         views.hapusDaftarStasiun, name='hapusDaftarStasiun'),
+    path('daftarPegawai', views.daftarPegawai.as_view(),
+         name='daftarPegawaiLengkap'),
+    path('daftarPegawaiBaru', views.daftarPegawaiBaru.as_view(),
+         name='daftarPegawaiBaru'),
+    re_path(r'^daftarPegawai/(?P<pk>[0-9]+$)',
+            views.daftarPegawai_detail.as_view(), name='pegawai-detail'),
+    re_path(r'^daftarPegawai/(?P<pk>[0-9]+)/change$',
+            views.ubahDaftarPegawai.as_view(), name='ubahDaftarPegawai'),
+    re_path(r'^daftarPegawai/(?P<pk>[0-9]+)/hapus',
+            views.hapusDaftarPegawai, name='hapusDaftarPegawai'),
+    path('dataStasiun', views.dataMetStasiunHome, name='dataStasiunHome'),
+    path('dataStasiun/cari', views.dataMetStasiunCari.as_view(), name='cariDataMet'),
+    path('dataStasiun/tambah',
+         views.dataMetStasiunTambah.as_view(), name='tambahDataMet'),
+    path('dataStasiun/ubah/<int:pk>',
+         views.dataMetStasiunUbah.as_view(), name="ubahDataMet"),
+    path('dataStasiun/hapus/<int:pk>',
+         views.dataMetStasiunHapus.as_view(), name='hapusDataMet'),
+]

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <title>qcData Aplikasi Database</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% block style %}
+    {% endblock %}
+    {% block js %}
+    {% endblock %}
+</head>
+<body>
+    <header class="bg-blue-900 text-white flex items-center justify-between px-3 py-3">
+        <div>
+            <a class="ml-1 text-2xl text-blue-200 font-semibold" href="{% url 'home' %}">DatabaseApp</a>
+        </div>
+        <div class="text-whiten mr-2">
+            <a class="mx-3" href="{% url 'stasiunLengkap' %}">Stasiun</a>
+            <a class="mx-3" href="{% url 'daftarPegawaiLengkap' %}">Pegawai</a>
+            <a class="mx-3" href="{% url 'dataStasiunHome' %}">Data Meteorologi</a>
+        </div>
+    </header>
+    <main>
+        {% block home %}
+        <div class="bg-local bg-auto bg-no-repeat bg-top" style="background-image:url({% static 'BG.png' %});">
+        {% block content %}
+        {% endblock %}
+        {% endblock %}
+        </div>
+    </main>
+</body>
+{% block script %}
+{% endblock %}
+{% include 'footer.html' %}
+</html>

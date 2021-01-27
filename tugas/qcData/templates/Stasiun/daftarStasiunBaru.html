@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="bg-blue-900 text-white text-center text-xl font-bold pt-10 pb-3">
+    <h1>Tambah {{judul}} Baru</h1>
+</div>
+<form class="container pb-10" action="" method="POST" style="margin-top: 20px">
+    {% csrf_token %}
+    {% for x in form %}
+        {% if x == form.kepalaStasiun %}
+            <div class="form-group" style="margin: 10px;">
+                <p><label>Kepala Stasiun</label> {{x}}</p>
+            </div>
+        {% elif x == form.stasiunKerja %}
+            <div class="form-group" style="margin: 10px;">
+            <p><label>Stasiun Kerja</label> {{x}}</p>
+            </div>
+        {% else %}
+            <div class="form-group" style="margin: 10px;">{{x}}</div>
+        {% endif %}
+    {% endfor %}
+    <input class=" border font-medium
+      rounded-md text-white bg-indigo-600 hover:bg-indigo-700 mx-2 py-2 px-2" type="submit" name="Submit" value="Submit">
+</form>
+    {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="bg-blue-900 text-white text-center text-xl font-bold pt-10 pb-3">
+      <h1>Daftar Stasiun Indonesia</h1>
+    </div>
+    <ul class="grid grid-cols-2 py-4 container">
+        {% for stasiun in daftarSemuaStasiun %}
+        {% if forloop.counter|divisibleby:"2" %}
+        <div class="font-semibold hover:text-blue-500 text-black-500 rounded-lg border-4 my-1 border-gray-500
+        border-opacity-75 hover:border-blue-500 mx-4">
+            <li><a class="pl-3" href="{{ stasiun.getAbsoluteUrl }}">{{stasiun.nama}}</a></li>
+        </div>
+        {% else %}
+        <div class="font-semibold hover:text-blue-500 text-black-500 rounded-lg border-4 my-1 border-gray-500
+        border-opacity-75 hover:border-blue-500 mx-4">
+            <li><a class="pl-3" href="{{ stasiun.getAbsoluteUrl }}">{{stasiun.nama}}</a></li>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </ul>
+      <a href="{% url 'daftarStasiunBaru' %}" class="">
+        <div class="pb-10">
+          <button class="relative left-16 border font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 py-2 px-2">
+          Tambah Stasiun</button>
+        </div>
+      </a>
+{% endblock %}

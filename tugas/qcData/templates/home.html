@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block home %}
+{% load static %}
+<div id="top" class="bg-blue-900 text-white font-sans">
+    <h1 class="text-5xl font-semibold">Welcome to Datawarehouse <em>Aplikasi Database MKG</em></h1>
+    <p class="text-center pt-3 pb-10">Basis data yang menyimpan data sekarang dan data masa lalu yang berasal dari
+        berbagai sistem operasional dan sumber yang lain (sumber eksternal).
+    </p>
+</div>
+<div class="bg-local bg-auto bg-no-repeat bg-top"  style="background-image:url({% static 'BG.png' %});">
+<div class="container px-14">
+     <h1 class="text-4xl mt-10 font-bold">Penyimpanan Data MKG<img class="float-right w-80" src="{% static 'home.svg' %}"></h1>
+     <p class="text-2xl mt-5 font-bold">Solusi Mudah</p>
+     <p class="text-xl mt-3">Menyimpan data-data tertentu dengan kemudahan penggunaan bagi pengguna</p>
+ </div>
+ <div class="grid grid-cols-3 mt-40 pt-20 pb-20">
+    <div class="rounded-md flex  text-white flex-col items-center bg-blue-900 mx-3 shadow-lg">
+        <div class="text-center rounded-full bg-blue-400 h-20 w-20 mx-2 my-2 flex items-center justify-center">
+           <h1 class="text-5xl font-bold text-white"> S </h1>
+        </div>
+        <div class="text-center">
+            <h1 class="text-2xl font-bold">Stasiun MKG Indonesia</h1>
+        </div>
+        <div class="text-center my-3 mx-1 text-xl font-bold">
+            <h2>Daftar Stasiun MKG di Indonesia yang dioperasikan oleh BMKG </h2>
+        </div>
+        <div class="">
+            Jumlah Stasiun Yang Terdaftar -> {{ jumlahStasiun }}
+        </div>
+        <button><div class="bg-white rounded-md text-black px-3 mt-3 mb-2">
+            <a href="#"><strong>SELENGKAPNYA</strong></a>
+        </div></button>
+    </div>
+    <div class="rounded-md flex flex-col items-center bg-blue-900 mx-3 shadow-lg text-white">
+        <div class="text-center rounded-full bg-red-400 h-20 w-20 mx-2 my-2 flex items-center justify-center">
+           <h1 class="text-5xl font-bold text-white"> P </h1>
+        </div>
+        <div class="text-center text-white">
+            <h1 class="text-lg font-bold">Pegawai BMKG Indonesia</h1>
+        </div>
+        <div class="text-center my-3 mx-1 text-xl font-bold">
+            <h2>Daftar Pegawai BMKG di Indonesia </h2>
+        </div>
+        <div class="">
+            Jumlah Pegawai Yang Terdata -> {{ jumlahPegawai }}
+        </div>
+        <button><div class="bg-white rounded-md text-black px-3 mt-3 mb-2">
+            <a href="#"><strong>SELENGKAPNYA</strong></a>
+        </div></button>
+    </div>
+    <div class="rounded-md flex flex-col items-center bg-blue-900 mx-3 shadow-lg text-white">
+        <div class="text-center rounded-full bg-green-400 h-20 w-20 mx-2 my-2 flex items-center justify-center">
+           <h1 class="text-5xl font-bold text-white"> M </h1>
+        </div>
+        <div class="text-center text-white">
+            <h1 class="text-lg font-bold">Data Meteorologi Stasiun MKG Indonesia</h1>
+        </div>
+        <div class="text-center my-3 mx-1 text-xl font-bold">
+            <h2>Data Meteorologi Stasiun BMKG yang dapat diakses secara bebas dan gratis</h2>
+        </div>
+        <div class="">
+            Jumlah Data Meteorologi Yang Tersimpan -> {{ jumlahData }}
+        </div>
+        <button><div class="bg-white rounded-md text-black px-3 mt-3 mb-2">
+            <a href="#"><strong>SELENGKAPNYA</strong></a>
+        </div></button>
+    </div>
+</div>
+</div>
+{% endblock %}
+{% block style %}
+    <style type="text/css">
+        #top h1{
+            padding-top: 50px;
+            text-align: center;
+        }
+    </style>
+{% endblock %}

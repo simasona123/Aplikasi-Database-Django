@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container" style="width: 50%">
+        <h1 class="text-2xl font-semibold">{{data.stasiun}}
+        {{data.tanggal}}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="my-3">
+                {{field.label}}
+                {{field}}
+                <h1 class="text-red-600 font-semibold">{{field.errors}}</h1>
+            </div>
+        {% endfor %}
+        <input class="my-1 mx-auto border font-medium rounded-md
+                        text-white bg-indigo-600 hover:bg-indigo-700 py-1 px-1" type="submit" name="">
+    </form>
+    </div>
+{% endblock %}

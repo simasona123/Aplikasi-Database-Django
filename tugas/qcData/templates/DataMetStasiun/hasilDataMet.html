@@ -1,0 +1,153 @@
+{% extends '../base.html' %}
+{% block content %}
+<h1 class="bg-blue-900 text-white text-center text-xl font-bold pt-10 pb-3">Data Meteorologi {{form.stasiun|upper}}</h1>
+    <table class="container mx-auto table-auto mt-10">
+        <thead>
+            <tr>
+            <th>Tanggal</th>
+            <th>TMax (°C)</th>
+            <th>TMin (°C)</th>
+            <th>T (°C)</th>
+            <th>Td (°C)</th>
+            <th>RH (%)</th>
+            <th>Tekanan Udara (mBar)</th>
+            <th>Curah Hujan (mm)</th>
+            </tr>
+        </thead>
+        <tbody class="pb-72">
+        {% for i in data %}
+            {% if forloop.counter|divisibleby:'2' %}
+                <tr class="bg-blue-600 font-semibold">
+                <td>
+                    {{i.tanggal}}
+                </td>
+                <td>
+                    {{i.tMax}}
+                </td>
+                <td>
+                    {{i.tMin}}
+                </td>
+                <td>
+                    {{i.t}}
+                </td>
+                <td>
+                    {{i.tD}}
+                </td>
+                <td>
+                    {{i.rH}}
+                </td>
+                <td>
+                    {{i.tekananUdara}}
+                </td>
+                <td>
+                    {{i.hujan}}
+                </td>
+                <td>
+                    <a href="{% url 'ubahDataMet' i.id %}"><button class="my-1 mx-auto border font-medium rounded-md
+                        text-white bg-indigo-600 hover:bg-indigo-700 py-1 px-1">
+                    Ubah</button></a>
+                    <a href="{% url 'hapusDataMet' i.id %}"><button class="my-1 mx-auto border font-medium rounded-md text-white
+                        bg-indigo-600 hover:bg-indigo-700 py-1 px-1">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            {% else %}
+                <tr>
+                <td>
+                    {{i.tanggal}}
+                </td>
+                <td>
+                    {{i.tMax}}
+                </td>
+                <td>
+                    {{i.tMin}}
+                </td>
+                <td>
+                    {{i.t}}
+                </td>
+                <td>
+                    {{i.tD}}
+                </td>
+                <td>
+                    {{i.rH}}
+                </td>
+                <td>
+                    {{i.tekananUdara}}
+                </td>
+                <td>
+                    {{i.hujan}}
+                </td>
+                <td>
+                    <a href="{% url 'ubahDataMet' i.id %}"><button class="my-1 mx-auto border font-medium rounded-md
+                        text-white bg-indigo-600 hover:bg-indigo-700 py-1 px-1">
+                    Ubah</button></a>
+                    <a href="{% url 'hapusDataMet' i.id %}"><button class="my-1 mx-auto border font-medium rounded-md text-white
+                        bg-indigo-600 hover:bg-indigo-700 py-1 px-1">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+        {% for i in data1 %}
+            {% if forloop.counter|divisibleby:'2' %}
+                <tr class="bg-blue-600 font-semibold">
+                <td>
+                    {{i.data.tanggal}}
+                </td>
+                <td>
+                    {{i.tMaxClean}}
+                </td>
+                <td>
+                    {{i.tMinClean}}
+                </td>
+                <td>
+                    {{i.tClean}}
+                </td>
+                <td>
+                    {{i.tDClean}}
+                </td>
+                <td>
+                    {{i.rHClean}}
+                </td>
+                <td>
+                    {{i.tekananUdaraClean}}
+                </td>
+                <td>
+                    {{i.hujanClean}}
+                </td>
+                </tr>
+            {% else %}
+            <tr class="">
+                <td>
+                    {{i.data.tanggal}}
+                </td>
+                <td>
+                    {{i.tMaxClean}}
+                </td>
+                <td>
+                    {{i.tMinClean}}
+                </td>
+                <td>
+                    {{i.tClean}}
+                </td>
+                <td>
+                    {{i.tDClean}}
+                </td>
+                <td>
+                    {{i.rHClean}}
+                </td>
+                <td>
+                    {{i.tekananUdaraClean}}
+                </td>
+                <td>
+                    {{i.hujanClean}}
+                </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </tbody>
+    </table>
+    <div class="container pb-36">
+
+    </div>
+{% endblock %}
