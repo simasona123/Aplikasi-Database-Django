@@ -10,7 +10,7 @@ from django.views import View
 
 # Create your views here.
 
-
+a = "Boma"
 def home(request):
     jumlahStasiun = Stasiun.objects.all().count()
     jumlahPegawai = Pegawai.objects.all().count()
